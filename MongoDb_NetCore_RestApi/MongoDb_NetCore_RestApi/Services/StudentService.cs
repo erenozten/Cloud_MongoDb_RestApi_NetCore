@@ -1,5 +1,5 @@
-﻿using MongoDb_NetCore_RestApi.Models;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
+using MongoDb_NetCore_RestApi.Models;
 
 namespace MongoDb_NetCore_RestApi.Services
 {
@@ -21,8 +21,10 @@ namespace MongoDb_NetCore_RestApi.Services
 
         public List<Student> Get()
         {
-            var test = _students.Find(student => true).ToList();
-            return _students.Find(student => true).ToList();
+            var result = _students.Find(student => true).Limit(10).ToList();
+            return result;
+
+            //return _students.Find(student => true).ToList();
         }
 
         public Student Get(string id)
